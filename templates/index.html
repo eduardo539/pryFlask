@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Calculadora de Peso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .creator-info {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        input[type="text"], input[type="submit"], input[type="number"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .form-image {
+            margin: 20px 0;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Peso</h1>
+        <img src="{{ url_for('static', filename='fondo1.jpg') }}" alt="Imagen de Peso" class="form-image">
+        <form method="post">
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+            <input type="number" name="peso" placeholder="Ingresa tu peso" required>
+            <input type="submit" value="Calcular">
+        </form>
+        <div class="result">
+            {% if peso and nombre %}
+                <p>Hola {{ peso }} kg, tu peso es de: {{ nombre }}</p>
+            {% endif %}
+        </div>
+        <div class="creator-info">
+            <p>Página creada por EDUARDO DOMINGUEZ LIBRADO 20210660</p>
+            <p>9° "B"    TI</p>
+            <p>Todo esta friamente calculado</p>
+        </div>
+    </div>
+</body>
+</html>
